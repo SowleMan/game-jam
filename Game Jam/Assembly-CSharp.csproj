@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CatHealth.cs" />
+     <Compile Include="Assets\CatMovement.cs" />
      <Compile Include="Assets\MMOCharacterController.cs" />
      <Compile Include="Assets\PlayerAttack.cs" />
  <Reference Include="UnityEngine.UI">

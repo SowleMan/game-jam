@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cat
+  - Bulding
   layers:
   - Default
   - TransparentFX
