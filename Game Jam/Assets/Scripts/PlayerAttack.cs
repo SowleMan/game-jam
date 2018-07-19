@@ -16,19 +16,15 @@ public class PlayerAttack : MonoBehaviour {
 	void Start () {
 		cat = GameObject.FindGameObjectWithTag ("Cat");
 		catHealth = cat.GetComponent<CatHealth> ();
-		Debug.Log("Player Attack Started");
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log("Cat in range check", other.gameObject);
 		if (other.gameObject == cat) {
-			Debug.Log("**Cat is in range**");
 			catInRange = true;
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		Debug.Log("Cat out of range check", other.gameObject);
 		if (other.gameObject == cat) {
 			catInRange = false;
 		}

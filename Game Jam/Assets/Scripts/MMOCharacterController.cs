@@ -13,6 +13,9 @@ public class MMOCharacterController : MonoBehaviour {
 	private float moveFB, moveLR;
 	public float moveSpeed = 2f;
 
+	private Vector3 fly;
+	public float flyForce;
+
 	private float zoom;
 	public float zoomSpeed = 2f;
 
@@ -24,6 +27,7 @@ public class MMOCharacterController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		zoom = -3;
+		fly = new Vector3 (0.0f, 2.0f, 0.0f);
 	}
 	
 	// Update is called once per frame
@@ -63,5 +67,24 @@ public class MMOCharacterController : MonoBehaviour {
 
 			character.rotation = Quaternion.Slerp (character.rotation, turnAngle, Time.deltaTime * rotationSpeed);
 		}
+
+		if (Input.GetKey (KeyCode.Space) && character.transform.position.y < 20f) {
+			Fly ();
+		}
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			Fall ();
+		}
+	}
+
+	void Fly() {
+		Debug.Log ("flying");
+		Vector3 fly = new Vector3 (0, flyForce, 0);
+		character.GetComponent<CharacterController> ().Move (fly * Time.deltaTime);
+	}
+		
+	void Fall() {
+		Debug.Log ("falling");
+		Vector3 fly = new Vector3 (0, -flyForce, 0);
+		character.GetComponent<CharacterController> ().Move (fly * Time.deltaTime);
 	}
 }

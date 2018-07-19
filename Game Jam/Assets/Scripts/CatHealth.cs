@@ -17,7 +17,6 @@ public class CatHealth : MonoBehaviour {
 		capsuleCollider = GetComponent<CapsuleCollider> ();
 
 		currentHealth = startingHealth;
-		Debug.Log("Cat health started");
 	}
 	
 	// Update is called once per frame
